@@ -107,19 +107,21 @@ function EventDetailsPage() {
   return (
     <div className="container page-section page-stack">
       <section className="details-hero card">
-        <img className="details-hero__image" src={event.bannerImage} alt={event.title} />
+        <div className="details-hero__media">
+          <img className="details-hero__image" src={event.bannerImage} alt={event.title} />
+        </div>
         <div className="details-hero__content">
           <div className="details-hero__header-row">
             <span className="pill">{event.category}</span>
             <span className={getStatusTone(event.status)}>{event.status}</span>
           </div>
           <h1>{event.title}</h1>
-          <p>{event.description}</p>
+          <p className="details-hero__description">{event.description}</p>
           <div className="details-grid">
-            <span><CalendarDays size={18} /> {formatDateTime(event.dateTime)}</span>
-            <span><MapPin size={18} /> {event.location}</span>
-            <span><Users size={18} /> {event.attendeeCount || attendees.length} attendees</span>
-            <span><UserRound size={18} /> Organized by {event.organizer?.name}</span>
+            <span className="details-grid__item"><CalendarDays size={18} /> {formatDateTime(event.dateTime)}</span>
+            <span className="details-grid__item"><MapPin size={18} /> {event.location}</span>
+            <span className="details-grid__item"><Users size={18} /> {event.attendeeCount || attendees.length} attendees</span>
+            <span className="details-grid__item"><UserRound size={18} /> Organized by {event.organizer?.name}</span>
           </div>
           <div className="details-actions">
             {!isOwner ? (

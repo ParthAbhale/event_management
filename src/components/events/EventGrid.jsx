@@ -22,11 +22,11 @@ function EventGrid({ events, loading, emptyTitle = 'No events found', emptyText 
   }
 
   return (
-    <div className="flex flex-wrap justify-center gap-5">
-  {events.map((event) => (
-    <EventCard key={event.id} event={event} />
-  ))}
-</div>
+    <div className="event-grid">
+      {events.map((event) => (
+        <EventCard key={event.id} event={event} />
+      ))}
+    </div>
   );
 }
 
